@@ -48,7 +48,7 @@ class SocketDemo {
 #if MBED_CONF_APP_USE_TLS_SOCKET
     static constexpr size_t REMOTE_PORT = 443; // tls port
 #else
-    static constexpr size_t REMOTE_PORT = 65443; // standard HTTP port
+    static constexpr size_t REMOTE_PORT = 62023; // standard HTTP port
 #endif // MBED_CONF_APP_USE_TLS_SOCKET
 
 public:
@@ -135,6 +135,8 @@ public:
         if (!send_http_request()) {
             return;
         }
+
+        ThisThread::sleep_for(3000); 
 
         int sample_num = 0;
         # define SCALE_MULTIPLIER 1
